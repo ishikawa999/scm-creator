@@ -7,10 +7,10 @@ Simple [Subversion](http://subversion.apache.org/), [Git](https://git-scm.com/),
 
 This repository is different from the original repository forked
 in the following point.
-* Change for use with Redmine 3.4
+* Change for use with Redmine 3.4.x
 * Bug fixese
 
-This plugin requires __Redmine version 3.4.0__ or higher.
+This plugin requires __Redmine version 3.4.x__
 
 ## Description
 
