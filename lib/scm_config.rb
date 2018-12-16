@@ -26,7 +26,7 @@ protected
         if File.file?(file)
             config = YAML::load_file(file)
             if config.is_a?(Hash) && config.has_key?(Rails.env)
-                @@configs = config[Rails.env]
+                @@configs = config[Rails.env] || {}
             else
                 Rails.logger.warn "Invalid configuration file or missing configuration for #{Rails.env}: #{Rails.root}/config/scm.yml"
             end

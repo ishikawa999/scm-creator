@@ -3,7 +3,7 @@ require_dependency 'repositories_helper'
 module ScmRepositoriesHelperPatch
 
     def self.prepended(base)
-        base.send(:include, InstanceMethods)
+        base.send(:prepend, InstanceMethods)
         base.class_eval do
             unloadable
         end
