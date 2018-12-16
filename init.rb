@@ -21,21 +21,21 @@ Redmine::Scm::Base.add('Github')
 
 Rails.configuration.to_prepare do
     unless Project.included_modules.include?(ScmProjectPatch)
-        Project.send(:include, ScmProjectPatch)
+        Project.send(:prepend, ScmProjectPatch)
     end
     unless RepositoriesHelper.included_modules.include?(ScmRepositoriesHelperPatch)
-        RepositoriesHelper.send(:include, ScmRepositoriesHelperPatch)
+        RepositoriesHelper.send(:prepend, ScmRepositoriesHelperPatch)
     end
     unless RepositoriesController.included_modules.include?(ScmRepositoriesControllerPatch)
-        RepositoriesController.send(:include, ScmRepositoriesControllerPatch)
+        RepositoriesController.send(:prepend, ScmRepositoriesControllerPatch)
     end
     unless Repository.included_modules.include?(ScmRepositoryPatch)
-        Repository.send(:include, ScmRepositoryPatch)
+        Repository.send(:prepend, ScmRepositoryPatch)
     end
 end
 
 Redmine::Plugin.register :redmine_scm do
-    requires_redmine :version => '3.4'
+    requires_redmine :version_or_higher => '3.4'
     name        'SCM Creator'
     author      'Andriy Lesyuk'
     author_url  'http://www.andriylesyuk.com/'
